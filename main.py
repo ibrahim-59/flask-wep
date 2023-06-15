@@ -1,4 +1,5 @@
 import json
+from flask_cors import CORS
 from flask import Flask,request,render_template,url_for,jsonify,session
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -9,6 +10,7 @@ model= joblib.load("model_pickle")
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/test", methods=['POST','GET'])
 def test():
